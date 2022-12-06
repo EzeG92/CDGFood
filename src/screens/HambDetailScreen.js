@@ -2,7 +2,12 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { Colors } from "../constants/colors";
 
+import { useSelector } from 'react-redux';
+
 const HambDetailScreen = () => {
+    const hamb = useSelector((state) => state.bread.selected)
+
+
     return (
         <View style={styles.container}>
             <Text style={styles.title}></Text>
