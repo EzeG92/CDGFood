@@ -12,9 +12,8 @@ const CategoriesScreen = ({ navigation }) => {
     const dispatch = useDispatch();
 
     const handleSelectedCategory = (item) => {
-        console.log(item.id)
         dispatch(selectedCategory(item.id))
-        navigation.navigate('Hamburguesas', {
+        navigation.navigate('Productos', {
             name: item.title,
         })
 

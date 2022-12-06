@@ -4,8 +4,8 @@ import { Colors } from "../constants/colors";
 
 import { useSelector } from 'react-redux';
 
-const HambDetailScreen = () => {
-    const hamb = useSelector((state) => state.bread.selected)
+const ProductsDetailScreen = () => {
+    const products = useSelector((state) => state.products.selected)
 
 
     return (
@@ -15,7 +15,7 @@ const HambDetailScreen = () => {
     )
 }
 
-export default HambDetailScreen
+export default ProductsDetailScreen
 
 const styles = StyleSheet.create({
     container: {
