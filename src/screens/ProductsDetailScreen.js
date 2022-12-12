@@ -4,22 +4,22 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addItem } from '../store/actions/cart.action';
 
 const ProductsDetailScreen = () => {
-    const product = useSelector((state) => state.products.selected);
+    const products = useSelector((state) => state.products.selected);
 
     useEffect (() => {
-        console.log(product);
+        console.log(products);
     }, []);
 
     const dispatch = useDispatch();
 
-    const handlerAddItemCart = () => dispatch(addItem(product));
+    const handlerAddItemCart = () => dispatch(addItem(products));
 
     return (
         <View style={styles.container}>
             <View style={styles.screen}>
-                <Text style={styles.title}>{product.name}</Text>
-                <Text style={styles.description}>{product.description}</Text>
-                <Text style={styles.price}>{product.price}</Text>
+                <Text style={styles.title}>{products.name}</Text>
+                <Text style={styles.description}>{products.description}</Text>
+                <Text style={styles.price}>{products.price}</Text>
                 <View style={styles.button}>
                     <Button title='Agregar al carrito' onPress={handlerAddItemCart} />
                 </View>
