@@ -1,31 +1,61 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import { Colors } from "../constants/colors";
-
-import { useSelector } from 'react-redux';
+import { Button, StyleSheet, Text, View } from 'react-native'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux';
+import { addItem } from '../store/actions/cart.action';
 
 const ProductsDetailScreen = () => {
-    const products = useSelector((state) => state.products.selected)
+    const product = useSelector((state) => state.products.selected);
 
+    useEffect (() => {
+        console.log(product);
+    }, []);
+
+    const dispatch = useDispatch();
+
+    const handlerAddItemCart = () => dispatch(addItem(product));
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}></Text>
+            <View style={styles.screen}>
+                <Text style={styles.title}>{product.name}</Text>
+                <Text style={styles.description}>{product.description}</Text>
+                <Text style={styles.price}>{product.price}</Text>
+                <View style={styles.button}>
+                    <Button title='Agregar al carrito' onPress={handlerAddItemCart} />
+                </View>
+            </View>
         </View>
-    )
-}
+    );
+};
 
 export default ProductsDetailScreen
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: Colors.secondary,
+        padding: 10,
+    },
+
+    screen: {
+        flex: 0.9,
+        justifyContent: 'center',
         alignItems: 'center',
     },
 
     title: {
-        fontFamily: 'Anybody2',
-        marginTop: 50,
-    }
+        fontSize: 25
+    },
+
+    description: {
+        fontSize: 20,
+    },
+
+    price: {
+        fontSize: 40,
+        fontFamily: 'Anybody'
+    },
+
+    button: {
+        marginTop: 15,
+    },
 })

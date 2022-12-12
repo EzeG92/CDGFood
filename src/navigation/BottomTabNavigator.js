@@ -6,6 +6,7 @@ import FontAwesome from '@expo/vector-icons/FontAwesome'
 import ShopNavigator from './ShopNavigator';
 import CartNavigator from "./CartNavigator";
 import { StyleSheet, View } from "react-native";
+import { Colors } from '../constants/colors'
 
 const BottomTabs = createBottomTabNavigator();
 
