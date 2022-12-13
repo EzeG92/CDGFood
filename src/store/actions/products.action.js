@@ -3,7 +3,7 @@ export const Filtered_Products = 'Filtered_Products'
 
 export const selectProducts = (id) => ({
     type: Selected_Products,
-    hambID: id,
+    productsID: id,
 
 })
 

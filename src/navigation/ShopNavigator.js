@@ -27,8 +27,6 @@ export default ShopNavigator = () => {
                 name='Detalle'
                 component={ProductsDetailScreen}
                 options={({ route }) => ({ title: route.params.name })} />
-
-
         </Stack.Navigator>
     )
 }

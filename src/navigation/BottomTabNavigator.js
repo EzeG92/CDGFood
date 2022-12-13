@@ -1,4 +1,4 @@
-import { NavigationContainer } from "@react-navigation/native";
+
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from '@expo/vector-icons/Ionicons'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons'
@@ -6,13 +6,12 @@ import FontAwesome from '@expo/vector-icons/FontAwesome'
 import ShopNavigator from './ShopNavigator';
 import CartNavigator from "./CartNavigator";
 import { StyleSheet, View } from "react-native";
-import { Colors } from '../constants/colors'
+import OrderNavigator from './OrderNavigator';
 
 const BottomTabs = createBottomTabNavigator();
 
 export default BottomTabNavigator = () => {
     return (
-        <NavigationContainer>
             <BottomTabs.Navigator
                 screenOptions={{
                     headerShown: false,
@@ -56,18 +55,16 @@ export default BottomTabNavigator = () => {
                     }} />
 
                 <BottomTabs.Screen
-                    name='ProfileTab'
-                    component={ShopNavigator}
+                    name='OrdersTab'
+                    component={OrderNavigator}
                     options={{
                         tabBarIcon: ({ focus }) => (
                             <View style={styles.item}>
-                                <FontAwesome name="user" size={20} color='black' />
+                                <FontAwesome name="list" size={20} color='black' />
                             </View>
                         ),
                     }} />
-
             </BottomTabs.Navigator>
-        </NavigationContainer>
     );
 }
 
