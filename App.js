@@ -20,6 +20,5 @@ export default function App() {
     <Provider store={store}>
       <MainNavigator />
     </Provider>
-
   )
 }

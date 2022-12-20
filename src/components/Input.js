@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, {useReducer, useEffect} from 'react'
 import { StyleSheet, Text, TextInput, View } from 'react-native'
 
 const INPUT_CHANGE = 'INPUT_CHANGE'
@@ -22,7 +22,6 @@ const inputReducer = (state, action) => {
     }
 }
 
-
 const Input = (props) => {
     const [inputState, dispatch] = useReducer(inputReducer, {
         value: props.initialValue ? props.initialValue : '',
@@ -40,7 +39,7 @@ const Input = (props) => {
 
     const textChangeHandler = (text) => {
         const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        let isValid = true
+        let isValid = true;
 
         if(props.required && text.trim().length === 0) isValid = false
         if(props.email && !emailRegex.test(text.toLowerCase())) isValid = false
